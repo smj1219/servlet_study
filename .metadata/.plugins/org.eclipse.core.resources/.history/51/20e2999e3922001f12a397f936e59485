@@ -1,0 +1,21 @@
+package test.servlet;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+
+public class FriendListServlet extends HttpServlet {
+	@Override
+	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		//DB에 있는 친구 목록이라 가정하자. sample 데이터
+		List<String> names=new ArrayList<String>();
+		names.add("김구라");
+		names.add("해골");
+		names.add("원숭이");
+	}
+}

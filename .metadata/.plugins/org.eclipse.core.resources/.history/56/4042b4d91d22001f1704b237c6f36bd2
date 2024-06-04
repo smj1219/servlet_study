@@ -1,0 +1,23 @@
+package test.servlet;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+
+@WebServlet("/fortune")//클라이언트가 만약 ()이런 요청을 하면 이 클래스를 사용하라는 의미
+public class FortuneServlet extends HttpServlet {// 1. HttpServlet 클래스 상속받기
+	@Override
+	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		//요청을 한 클라이언트에게 문자열을 출력할 수 있는 객체의 참조값 얻어내기
+		//응답에 관련된 메소드는 HttpServletResponse resp 가 가지고 있다
+		PrintWriter pw= resp.getWriter();
+		pw.println("lucky today!");
+		pw.flush();
+		pw.close();
+	}
+}

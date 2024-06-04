@@ -1,0 +1,8 @@
+package test.servlet;
+
+import jakarta.servlet.annotation.WebServlet;
+
+@WebServlet("/member/list")
+public class MemberListServlet {
+
+}
