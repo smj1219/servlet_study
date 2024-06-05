@@ -390,3 +390,7 @@
 0:0:0:0:0:0:0:1 - - [04/Jun/2024:18:10:42 +0900] "GET /Step01_Servlet/quiz?msg=38 HTTP/1.1" 200 136
 0:0:0:0:0:0:0:1 - - [04/Jun/2024:18:10:47 +0900] "GET /Step01_Servlet/quiz?msg=39 HTTP/1.1" 200 201
 0:0:0:0:0:0:0:1 - - [04/Jun/2024:18:10:53 +0900] "GET /Step01_Servlet/quiz?msg=38 HTTP/1.1" 200 136
+127.0.0.1 - - [04/Jun/2024:18:11:51 +0900] "GET / HTTP/1.1" 404 808
+0:0:0:0:0:0:0:1 - - [04/Jun/2024:18:11:52 +0900] "GET /Step01_Servlet/index.html HTTP/1.1" 200 825
+0:0:0:0:0:0:0:1 - - [04/Jun/2024:18:11:56 +0900] "GET /Step01_Servlet/quiz?msg=%EA%B9%80%EA%B5%AC%EB%9D%BC HTTP/1.1" 200 136
+0:0:0:0:0:0:0:1 - - [04/Jun/2024:18:11:59 +0900] "GET /Step01_Servlet/quiz?msg=%EA%B9%80%EA%B5%AC%EB%9D%BC00 HTTP/1.1" 200 192
