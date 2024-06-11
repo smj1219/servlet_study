@@ -9,3 +9,13 @@
 6월 05, 2024 14:35:16.11 Created TensorFlow Lite XNNPACK delegate for CPU.
 6월 05, 2024 15:06:11.28 Created TensorFlow Lite XNNPACK delegate for CPU.
 6월 05, 2024 16:09:21.66 [1484:8036:0605/160921.669:ERROR:interface_endpoint_client.cc(722)] Message 1 rejected by interface blink.mojom.WidgetHost
+
+6월 10, 2024 10:48:23.51 NEW SESSION
+6월 10, 2024 10:48:23.52 Created TensorFlow Lite XNNPACK delegate for CPU.
+6월 10, 2024 10:55:18.02 [13800:6356:0610/105518.022:ERROR:interface_endpoint_client.cc(722)] Message 1 rejected by interface blink.mojom.WidgetHost
+6월 10, 2024 10:55:20.60 [13800:6356:0610/105520.603:ERROR:interface_endpoint_client.cc(722)] Message 1 rejected by interface blink.mojom.WidgetHost
+6월 10, 2024 13:07:22.51 [13800:6356:0610/130722.514:ERROR:interface_endpoint_client.cc(722)] Message 1 rejected by interface blink.mojom.WidgetHost
+6월 10, 2024 13:07:22.51 [13800:6356:0610/130722.514:ERROR:interface_endpoint_client.cc(722)] Message 1 rejected by interface blink.mojom.WidgetHost
+6월 10, 2024 14:50:50.08 [13800:6356:0610/145050.085:ERROR:interface_endpoint_client.cc(722)] Message 1 rejected by interface blink.mojom.WidgetHost
+6월 10, 2024 16:32:25.68 [13800:6356:0610/163225.686:ERROR:interface_endpoint_client.cc(722)] Message 1 rejected by interface blink.mojom.WidgetHost
+6월 10, 2024 16:32:25.68 [13800:6356:0610/163225.686:ERROR:interface_endpoint_client.cc(722)] Message 1 rejected by interface blink.mojom.WidgetHost
