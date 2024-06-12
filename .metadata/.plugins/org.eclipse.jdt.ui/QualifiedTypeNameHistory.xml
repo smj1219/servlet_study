@@ -15,8 +15,10 @@
     <fullyQualifiedTypeName name="javax.sql.DataSource"/>
     <fullyQualifiedTypeName name="java.sql.SQLClientInfoException"/>
     <fullyQualifiedTypeName name="test.util.DbcpBean"/>
-    <fullyQualifiedTypeName name="java.util.List"/>
-    <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="test.member.dto.MemberDto"/>
     <fullyQualifiedTypeName name="test.friend.dto.FriendDto"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="test.guest.dao.GuestDao"/>
+    <fullyQualifiedTypeName name="test.guest.dto.GuestDto"/>
 </qualifiedTypeNameHistroy>

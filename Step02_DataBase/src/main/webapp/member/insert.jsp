@@ -21,20 +21,21 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>/member/insertform.jsp</title>
+<title>/member/insert.jsp</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 <body>
 	<div class="container">
 	<h3>알림</h3>
 	<%if(isSuccess){ %>
-		<p>
+		<p class="alert alert-success">
 			<strong><%=name %></strong> 님의 정보를 저장했습니다
-			<a href="${pageContext.request.contextPath}/member/list.jsp">목록보기</a>
+			<a class="alert-link" href="${pageContext.request.contextPath}/member/list.jsp">목록보기</a>
 		</p>
 	<%}else{ %>
-		<p>
+		<p class="alert alert-danger">
 			회원정보 저장 실패!
-			<a href="${pageContext.request.contextPath}/member/insertform.jsp">다시 작성</a>
+			<a class="alert-link" href="${pageContext.request.contextPath}/member/insertform.jsp">다시 작성</a>
 		</p>
 	<%} %>
 	</div>

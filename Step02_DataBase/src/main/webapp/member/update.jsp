@@ -12,8 +12,6 @@
 	MemberDto dto=new MemberDto(num, name, addr);
 	boolean isSuccess=new MemberDao().update(dto);
 	//3. 응답한다.
-	
-	
 %>
 <!DOCTYPE html>
 <html>

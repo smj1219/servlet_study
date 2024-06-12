@@ -40,15 +40,11 @@ public class GuestDao {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		try {
-			//Connection Pool 로 부터 Connection 객체 하나 가져오기 
 			conn = new DbcpBean().getConn();
-			//실행할 sql 문 작성 
 			String sql = "SELECT num, writer, content, pwd, regdate"
 					+ " FROM board_guest"
 					+ " ORDER BY num DESC";
 			pstmt = conn.prepareStatement(sql);
-			// ? 에 바인딩 할 내용이 있으면 여기서 바인딩한다.
-
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
 				//커서가 위치한 곳의 글정보를 추출해서 GuestDto 객체에 담은 다음
@@ -83,17 +79,118 @@ public class GuestDao {
 		PreparedStatement pstmt = null;
 		int rowCount = 0;
 		try {
-			//Connection Pool 로 부터 Connection 객체 하나 가져오기 
 			conn = new DbcpBean().getConn();
-			//실행할 sql 문 작성
 			String sql = "INSERT INTO board_guest"
 					+ " (num, writer, content, pwd, regdate)"
 					+ " VALUES(board_guest_seq.NEXTVAL, ?, ?, ?, SYSDATE)";
 			pstmt = conn.prepareStatement(sql);
-			// ? 에 바인딩 할 내용이 있으면 여기서 바인딩한다.
 			pstmt.setString(1, dto.getWriter());
 			pstmt.setString(2, dto.getContent());
 			pstmt.setString(3, dto.getPwd());
+			rowCount = pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (pstmt != null)
+					pstmt.close();
+				if (conn != null)
+					conn.close();
+			} catch (Exception e) {
+			}
+		}
+		if (rowCount > 0) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	//글 하나의 정보를 리턴하는 메소드
+	public GuestDto getData(int num) {
+		GuestDto dto=null;
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			conn = new DbcpBean().getConn();
+			String sql = "SELECT writer, content, pwd, regdate"
+					+ " FROM board_guest"
+					+ " WHERE num=?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, num);
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				dto=new GuestDto();
+				dto.setNum(num);
+				dto.setWriter(rs.getString("writer"));
+				dto.setContent(rs.getString("content"));
+				dto.setPwd(rs.getString("pwd"));
+				dto.setRegdate(rs.getString("regdate"));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (rs != null)
+					rs.close();
+				if (pstmt != null)
+					pstmt.close();
+				if (conn != null)
+					conn.close();
+			} catch (Exception e) {
+			}
+		}
+		return dto;
+	}
+	
+	//하나의 방명록을 삭제하는 메소드
+	public boolean delete(int num) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		int rowCount = 0;
+		try {
+			conn = new DbcpBean().getConn();
+			String sql = "DELETE FROM board_guest"
+					+ "	WHERE num=?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, num);
+			rowCount = pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (pstmt != null)
+					pstmt.close();
+				if (conn != null)
+					conn.close();
+			} catch (Exception e) {
+			}
+		}
+		if (rowCount > 0) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	
+	//방명록 하나의 내용을 수정할 메소드
+	public boolean update(GuestDto dto) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		int rowCount = 0;
+		try {
+			conn = new DbcpBean().getConn();
+			//실행할 sql 문 작성
+			String sql = "UPDATE board_guest"
+					+ " SET writer=?, content=?"
+					+ " WHERE num=?";
+			pstmt = conn.prepareStatement(sql);
+			// ? 에 바인딩 할 내용이 있으면 여기서 바인딩한다.
+			pstmt.setString(1, dto.getWriter());
+			pstmt.setString(2, dto.getContent());
+			pstmt.setInt(3, dto.getNum());
 			// update 문 실행하고 변화된 rowCount 를 리턴 받는다.
 			rowCount = pstmt.executeUpdate();
 		} catch (Exception e) {
@@ -112,5 +209,6 @@ public class GuestDao {
 		} else {
 			return false;
 		}
+
 	}
 }

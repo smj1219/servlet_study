@@ -5,7 +5,9 @@
     pageEncoding="UTF-8"%>
    
 <%
+	//GuestDao 객체의 참조값 얻어오기
 	GuestDao dao=GuestDao.getInstance();
+	//글목록 얻어오기
 	List<GuestDto> list=dao.getList();
 	
 %>
@@ -35,10 +37,19 @@
 				<tr>
 					<td><%=tmp.getNum() %></td>
 					<td><%=tmp.getWriter() %></td>
-					<td><%=tmp.getContent() %></td>
+					<td>
+						<textarea rows="5" readonly><%=tmp.getContent() %></textarea>
+					</td>
 					<td><%=tmp.getRegdate() %></td>
-					<td><a href="update.jsp">수정</a></td>
-					<td><a href="delete.jsp">삭제</a></td>
+					<td><a href="updateform.jsp?num=<%=tmp.getNum()%>">수정</a></td>
+					<td>
+						<form action="delete.jsp" method="post">
+							<!-- 화면상에 보이지는 않지만 폼 전송될 때 같이 전송되는 input -->
+							<input type="hidden" name="num" value="<%=tmp.getNum() %>" />
+							<input type="text" name="pwd" />
+							<button type="submit">삭제</button>
+						</form>
+					</td>
 				</tr>
 				<%} %>
 			</tbody>
